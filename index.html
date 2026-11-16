@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<!-- Avisa ao navegador que este é um arquivo HTML moderno -->
+<html lang="pt-BR">
+<head>
+  <!-- "head" guarda informações sobre a página que não aparecem na tela -->
+  <meta charset="UTF-8"> <!-- permite acentos (á, ç, ã...) -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- deixa o site certinho no celular -->
+  <title>Ludnice | Criação de Sites</title> <!-- texto que aparece na aba do navegador -->
+
+  <!-- Descrição do site: aparece no Google, embaixo do título -->
+  <meta name="description" content="Criação de sites bonitos, modernos e que funcionam no telemóvel e no computador. Sites a partir de 75 €.">
+
+  <!-- PRÉVIA AO COMPARTILHAR (WhatsApp, Facebook...): título, texto e imagem do "cartãozinho" -->
+  <meta property="og:title" content="Precisa de um site? Eu faço! | Ludnice">
+  <meta property="og:description" content="Sites bonitos, modernos e que funcionam no telemóvel e no computador. A partir de 75 €.">
+  <meta property="og:type" content="website">
+  <!-- A imagem da prévia precisa do ENDEREÇO COMPLETO do site. Quando o site estiver no ar,
+       tire os sinais de comentário da linha abaixo e troque pelo seu endereço:
+  <meta property="og:image" content="https://SEU-ENDERECO/previa.jpg">
+  -->
+
+  <!-- Ícone que aparece na aba do navegador (favicon) -->
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+
+  <!-- Fontes do Google: "Fraunces" para os títulos e "DM Sans" para os textos -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=Fraunces:wght@700&display=swap" rel="stylesheet">
+
+  <!-- Liga este HTML ao arquivo de estilos (cores, tamanhos...) -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ===== CABEÇALHO: topo da página com o menu ===== -->
+  <header class="cabecalho">
+    <!-- Botão "hambúrguer" (☰): só aparece no celular e abre/fecha o menu.
+         "aria-label" descreve o botão para quem usa leitor de tela -->
+    <button id="botao-menu" class="botao-menu" aria-label="Abrir menu">☰</button>
+
+    <!-- Menu de navegação: cada link pula para uma seção da página (pelo "id") -->
+    <nav class="menu" id="menu">
+      <a href="#sobre">Sobre</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#como-funciona">Como funciona</a>
+      <a href="#precos">Preços</a>
+      <a href="#mostruario">Mostruário</a>
+      <a href="#perguntas">Dúvidas</a>
+      <a href="#orcamento">Orçamento</a>
+    </nav>
+  </header>
+
+  <!-- ===== SEÇÃO INICIAL: a primeira coisa que o visitante vê ===== -->
+  <section id="inicio" class="inicio">
+    <h1>Precisa de um site? <span class="destaque">Eu faço!</span></h1>
+    <p>Sites modernos, bonitos e que ficam ótimos no telemóvel e no computador.</p>
+
+    <div class="botoes">
+      <!-- Botão principal: leva para o formulário de orçamento -->
+      <a href="#orcamento" class="botao botao-principal">✨ Quero um orçamento</a>
+      <!-- Botão secundário: rola até o mostruário -->
+      <a href="#mostruario" class="botao botao-secundario">Ver trabalhos</a>
+    </div>
+  </section>
+
+  <!-- ===== SOBRE MIM =====
+       A classe "revelar" faz a seção aparecer suavemente ao rolar (ver script.js) -->
+  <section id="sobre" class="secao revelar">
+    <h2>Sobre mim</h2>
+
+    <div class="sobre">
+      <!-- FOTO: por enquanto é um círculo com a letra "L".
+           Para usar sua foto, salve-a na pasta do site (ex.: "foto.jpg") e troque a linha abaixo por:
+           <img src="foto.jpg" alt="Foto da Ludnice" class="foto"> -->
+      <div class="foto foto-provisoria">L</div>
+
+      <div class="sobre-texto">
+        <p>Olá! Sou a <strong>Ludnice</strong>, trabalho com <strong>front-end</strong> (a parte do site que as pessoas veem e usam) e comecei a criar sites para pequenos negócios e projetos pessoais.</p>
+        <p>Gosto de transformar ideias em páginas bonitas, simples de usar e que ajudam você a ser encontrado na internet.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SERVIÇOS: cartões que abrem e fecham ao clicar ===== -->
+  <section id="servicos" class="secao secao-alternada revelar">
+    <h2>Serviços</h2>
+    <p class="subtitulo">Clique em um cartão para ver mais detalhes 👇</p>
+
+    <div class="cartoes">
+      <!-- Cada "cartao" é um botão. Ao clicar, o script.js mostra o texto escondido -->
+      <button class="cartao">
+        <!-- "imagens/..." = o arquivo está dentro da pasta "imagens" -->
+        <img src="imagens/servico-site.jpg" alt="Notebook mostrando um site" class="cartao-imagem">
+        <h3>Site institucional</h3>
+        <p class="detalhe">Um site completo para apresentar sua empresa: quem você é, o que faz e como falar com você.</p>
+      </button>
+
+      <button class="cartao">
+        <img src="imagens/servico-landing.jpg" alt="Foguete decolando" class="cartao-imagem">
+        <h3>Landing page</h3>
+        <p class="detalhe">Uma página única e direta, feita para vender um produto ou serviço específico.</p>
+      </button>
+
+      <button class="cartao">
+        <img src="imagens/servico-manutencao.jpg" alt="Ferramentas e engrenagem" class="cartao-imagem">
+        <h3>Manutenção</h3>
+        <p class="detalhe">Atualizo textos, fotos e informações do seu site sempre que você precisar.</p>
+      </button>
+    </div>
+  </section>
+
+  <!-- ===== COMO FUNCIONA: passo a passo numerado ===== -->
+  <section id="como-funciona" class="secao revelar">
+    <h2>Como funciona</h2>
+    <p class="subtitulo">Simples, do primeiro contato até o site no ar.</p>
+
+    <!-- "ol" = lista NUMERADA (ordered list). Cada "li" é um item da lista -->
+    <ol class="passos">
+      <li class="passo">
+        <span class="passo-numero">1</span>
+        <h3>Você me chama</h3>
+        <p>Preencha o formulário de orçamento ou me mande uma mensagem.</p>
+      </li>
+      <li class="passo">
+        <span class="passo-numero">2</span>
+        <h3>Conversamos</h3>
+        <p>Entendo sua ideia, o que você precisa e o estilo que combina com você.</p>
+      </li>
+      <li class="passo">
+        <span class="passo-numero">3</span>
+        <h3>Eu crio</h3>
+        <p>Monto o site e mostro para você. Ajustamos juntos até ficar do seu jeito.</p>
+      </li>
+      <li class="passo">
+        <span class="passo-numero">4</span>
+        <h3>Site no ar! 🎉</h3>
+        <p>Seu site fica disponível na internet para todos verem.</p>
+      </li>
+    </ol>
+  </section>
+
+  <!-- ===== PREÇOS ===== -->
+  <section id="precos" class="secao secao-alternada revelar">
+    <h2>Preços</h2>
+
+    <div class="preco-cartao">
+      <!-- Nome do pacote: diz o que está incluído nesse preço -->
+      <p class="preco-pacote">One Page / Landing Page</p>
+      <p class="preco">Sites a partir de <strong>75 €</strong></p>
+
+      <!-- "ul" = lista com marcadores (sem números) -->
+      <ul class="lista-check">
+        <li>Design bonito e moderno</li>
+        <li>Funciona no telemóvel e no computador</li>
+        <li>Botão direto para o seu WhatsApp e redes sociais</li>
+      </ul>
+
+      <p class="faixa-lancamento">🎉 Lançamento: desconto para os primeiros clientes!</p>
+
+      <a href="#orcamento" class="botao botao-principal">Quero aproveitar</a>
+    </div>
+  </section>
+
+  <!-- ===== MOSTRUÁRIO: exemplo de trabalho com QR code ===== -->
+  <section id="mostruario" class="secao revelar">
+    <h2>Mostruário</h2>
+    <p class="subtitulo">Aponte a câmera do celular para o QR code e veja um site que eu fiz.</p>
+
+    <div class="projeto">
+      <!-- Imagem do QR code. "src" diz qual arquivo mostrar e "alt" descreve a imagem
+           (aparece se a imagem não carregar e ajuda quem usa leitor de tela) -->
+      <img src="qrcode-projeto.png" alt="QR code do site Bebê Livre" class="qrcode">
+
+      <div class="projeto-info">
+        <h3>Bebê Livre</h3>
+        <p>Site informativo sobre o desenvolvimento de bebês de 0 a 3 anos, inspirado na abordagem Pikler. Tem as fases do desenvolvimento, dicas de rotina e brinquedos, perguntas frequentes e sugestões de leitura.</p>
+        <!-- target="_blank" abre o link em uma nova aba -->
+        <a href="#" id="link-projeto" class="botao botao-secundario" target="_blank">Abrir o site ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PERGUNTAS FREQUENTES =====
+       "details" + "summary" já vêm prontos no HTML: clicar no "summary" abre/fecha o resto.
+       Não precisa de JavaScript! -->
+  <section id="perguntas" class="secao secao-alternada revelar">
+    <h2>Dúvidas frequentes</h2>
+    <p class="subtitulo">Clique na pergunta para ver a resposta.</p>
+
+    <div class="perguntas">
+      <details>
+        <summary>Quanto tempo demora para o site ficar pronto?</summary>
+        <p>Depende do tamanho do site, mas uma página simples costuma ficar pronta em poucos dias.</p>
+      </details>
+
+      <details>
+        <summary>Preciso entender de computador?</summary>
+        <p>Não! Você me conta sua ideia com suas palavras e eu cuido de toda a parte técnica.</p>
+      </details>
+
+      <details>
+        <summary>O site funciona no telemóvel?</summary>
+        <p>Sim. Todos os sites são feitos para funcionar bem no telemóvel, no tablet e no computador.</p>
+      </details>
+
+      <details>
+        <summary>Posso pedir mudanças depois?</summary>
+        <p>Pode. Durante a criação fazemos os ajustes juntos, e depois também ofereço o serviço de manutenção.</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- ===== ORÇAMENTO: formulário que monta uma mensagem e abre o WhatsApp ===== -->
+  <section id="orcamento" class="secao revelar">
+    <h2>Peça seu orçamento</h2>
+    <p class="subtitulo">Preencha abaixo e a mensagem já vai pronta para o meu WhatsApp. Sem compromisso!</p>
+
+    <!-- "form" = formulário. O "id" permite que o script.js encontre ele -->
+    <form id="formulario" class="formulario">
+      <p class="formulario-titulo">📝 Seu pedido de orçamento</p>
+
+      <!-- "label" é o texto que explica cada campo. O "for" liga o label ao campo com o mesmo "id" -->
+      <label for="campo-nome">Seu nome</label>
+      <!-- "required" = campo obrigatório: o navegador não deixa enviar vazio -->
+      <input type="text" id="campo-nome" placeholder="Ex.: Maria" required>
+
+      <label for="campo-tipo">Que tipo de site você precisa?</label>
+      <!-- "select" = caixinha de escolha. Cada "option" é uma opção -->
+      <select id="campo-tipo">
+        <option>Site institucional</option>
+        <option>Landing page</option>
+        <option>Manutenção de site</option>
+        <option>Ainda não sei</option>
+      </select>
+
+      <label for="campo-ideia">Conte um pouco sobre sua ideia</label>
+      <!-- "textarea" = caixa de texto grande, para várias linhas -->
+      <textarea id="campo-ideia" rows="4" placeholder="Ex.: Tenho uma loja de bolos e quero mostrar meus produtos."></textarea>
+
+      <button type="submit" class="botao botao-whatsapp">💬 Enviar pelo WhatsApp</button>
+      <p class="formulario-aviso">Ao clicar, o WhatsApp abre com a mensagem pronta. É só apertar enviar!</p>
+    </form>
+  </section>
+
+  <!-- ===== RODAPÉ ===== -->
+  <footer class="rodape">
+    <!-- Links das redes sociais. Troque o "#" do Instagram pelo link do seu perfil -->
+    <div class="redes">
+      <a href="#" target="_blank">Instagram</a>
+      <a href="https://github.com/ludnice11-lang" target="_blank">GitHub</a>
+    </div>
+    <!-- O ano é preenchido automaticamente pelo script.js -->
+    <p>© <span id="ano"></span> Ludnice · Criação de Sites</p>
+  </footer>
+
+  <!-- Botão redondo "voltar ao início" que fica no canto da tela.
+       href="#inicio" leva para a seção com id="inicio" (o topo da página) -->
+  <a href="#inicio" id="botao-topo" class="botao-topo" title="Voltar ao início" aria-label="Voltar ao início">↑</a>
+
+  <!-- Nosso próprio código JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+<!-- Ícone da aba do navegador. SVG é uma imagem feita de código (formas e textos) -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Quadrado azul-marinho com cantos arredondados (rx = arredondamento) -->
+  <rect width="64" height="64" rx="14" fill="#13202e"/>
+  <!-- Letra "L" verde-limão no meio -->
+  <text x="32" y="47" text-anchor="middle" font-family="Georgia, serif" font-size="42" font-weight="bold" fill="#d9f07a">L</text>
+</svg>

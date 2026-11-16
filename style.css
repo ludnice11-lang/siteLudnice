@@ -1,0 +1,692 @@
+/* =========================================================
+   CORES DO SITE
+   Aqui criamos "variáveis": nomes que guardam uma cor.
+   Se quiser mudar a cor do site todo, é só mudar aqui!
+   ========================================================= */
+/* Cores inspiradas no flyer: azul-marinho escuro + verde-limão */
+:root {
+  --cor-principal: #d9f07a;   /* verde-limão (títulos e destaques) */
+  --cor-texto-botao: #13202e; /* cor das letras dentro do botão verde-limão */
+  --cor-fundo: #13202e;       /* azul-marinho bem escuro */
+  --cor-fundo-alt: #182a3a;   /* azul-marinho um pouco mais claro (seções e cartões) */
+  --cor-borda: rgba(255, 255, 255, 0.1); /* linha branca bem transparente */
+  --cor-texto: #eef2f6;       /* letras quase brancas */
+  --cor-whatsapp: #25d366;    /* verde do WhatsApp */
+  --cor-cabecalho: #ffffff;   /* branco (fundo do cabeçalho e do rodapé) */
+  --cor-texto-escuro: #13202e; /* letras escuras, para ler bem em cima do branco */
+}
+
+/* =========================================================
+   AJUSTES GERAIS
+   ========================================================= */
+* {
+  margin: 0;              /* tira os espaços automáticos que o navegador coloca */
+  padding: 0;
+  box-sizing: border-box; /* faz o tamanho dos elementos ficar mais previsível */
+}
+
+html {
+  scroll-behavior: smooth; /* ao clicar no menu, a página rola suavemente */
+}
+
+body {
+  font-family: "DM Sans", Arial, sans-serif; /* fonte dos textos */
+  background: var(--cor-fundo);   /* var(...) usa a cor guardada lá em cima */
+  color: var(--cor-texto);
+  line-height: 1.6;               /* espaço entre as linhas do texto */
+}
+
+/* IMAGEM DE FUNDO "sombreada"
+   "::before" cria uma camada extra dentro do <body>, só com a imagem.
+   Assim podemos deixar SÓ a imagem transparente, sem afetar os textos. */
+body::before {
+  content: "";                     /* obrigatório para a camada existir */
+  position: fixed;                 /* fica parada enquanto a página rola */
+  inset: 0;                        /* estica a camada para cobrir a tela inteira */
+  z-index: -1;                     /* manda a camada para TRÁS de todo o conteúdo */
+  background-image: url("imagens/fundo.webp"); /* a imagem (versão leve, em WebP) que está na pasta do site */
+  background-size: cover;          /* a imagem cobre a tela toda, sem deformar */
+  background-position: center;     /* centraliza a imagem */
+  opacity: 0.15;                   /* 0 = invisível, 1 = imagem forte. 0.15 = bem fraquinha */
+}
+
+/* Títulos usam a fonte "Fraunces", igual ao flyer */
+h1, h2, h3 {
+  font-family: "Fraunces", Georgia, serif;
+  line-height: 1.2;
+}
+
+/* =========================================================
+   CABEÇALHO
+   ========================================================= */
+.cabecalho {
+  position: sticky;   /* o cabeçalho "gruda" no topo quando a página rola */
+  top: 0;
+  z-index: 10;        /* fica por cima das outras coisas */
+  display: flex;      /* coloca os itens lado a lado */
+  align-items: center;
+  justify-content: center; /* centraliza o menu */
+  padding: 1rem 2rem;
+  background: var(--cor-cabecalho); /* fundo branco */
+}
+
+.menu {
+  display: flex;
+  flex-wrap: wrap;           /* se a tela for estreita, os links passam para a linha de baixo */
+  justify-content: center;
+  gap: 0.3rem 1.4rem;        /* espaço entre os links (vertical e horizontal) */
+}
+
+.menu a {
+  color: var(--cor-texto-escuro); /* letras escuras em cima do branco */
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.menu a:hover {          /* ":hover" = quando o mouse passa por cima */
+  text-decoration: underline; /* sublinha o link */
+}
+
+/* Botão ☰ do menu: no computador ele fica escondido */
+.botao-menu {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--cor-texto-escuro); /* ☰ escuro, para aparecer no branco */
+  font-size: 1.8rem;
+  cursor: pointer;       /* mostra a "mãozinha" ao passar o mouse */
+}
+
+/* =========================================================
+   SEÇÃO INICIAL
+   ========================================================= */
+.inicio {
+  min-height: 65vh;      /* "vh" = altura da tela. 65vh = 65% da altura */
+  display: flex;
+  flex-direction: column; /* empilha os itens um embaixo do outro */
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 2rem;
+}
+
+.inicio h1 {
+  font-size: 2.8rem;
+  max-width: 800px;
+  margin-bottom: 1rem;
+  color: var(--cor-principal); /* título em verde-limão, como no flyer */
+}
+
+.destaque {
+  text-decoration: underline;  /* sublinha a palavra "bonito" para dar destaque */
+}
+
+.botoes {
+  display: flex;
+  gap: 1rem;             /* espaço entre os botões */
+  flex-wrap: wrap;       /* se não couber, passa para a linha de baixo */
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+/* =========================================================
+   BOTÕES
+   ========================================================= */
+.botao {
+  display: inline-block;
+  padding: 0.9rem 1.8rem;
+  border-radius: 50px;   /* cantos bem arredondados */
+  font-weight: bold;
+  text-decoration: none;
+  transition: transform 0.2s, box-shadow 0.2s; /* animação suave */
+}
+
+.botao:hover {
+  transform: translateY(-3px); /* o botão "sobe" um pouquinho */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.botao-principal {
+  background: var(--cor-principal); /* fundo verde-limão */
+  color: var(--cor-texto-botao);    /* letras escuras para dar contraste */
+}
+
+/* Botão que leva ao WhatsApp fica verde, como no flyer */
+.botao-whatsapp {
+  background: var(--cor-whatsapp);
+  color: #13202e;
+  border: none;
+  font-size: 1rem;
+  font-family: inherit;  /* usa a mesma fonte do resto do site */
+  cursor: pointer;
+}
+
+.botao-secundario {
+  border: 2px solid var(--cor-principal);
+  color: var(--cor-principal);
+}
+
+/* =========================================================
+   SEÇÕES
+   ========================================================= */
+.secao {
+  padding: 5rem 2rem;
+  text-align: center;
+  scroll-margin-top: 60px; /* ao pular para a seção pelo menu, deixa espaço para o cabeçalho não cobrir o título */
+}
+
+.secao-alternada {
+  /* azul semitransparente: o último número (0.6) deixa a imagem de fundo aparecer um pouco */
+  background: rgba(24, 42, 58, 0.6);
+}
+
+.secao h2 {
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+  color: var(--cor-principal);
+}
+
+/* "::before" cria um enfeite ANTES do título: aqui, um tracinho verde-limão
+   igual ao que aparece no topo do flyer */
+.secao h2::before {
+  content: "";           /* obrigatório para o enfeite aparecer (mesmo vazio) */
+  display: block;
+  width: 50px;
+  height: 5px;
+  margin: 0 auto 1rem;   /* "auto" centraliza; 1rem de espaço embaixo */
+  border-radius: 5px;
+  background: var(--cor-principal);
+}
+
+.subtitulo {
+  opacity: 0.75;         /* deixa o texto um pouco mais clarinho */
+  margin-bottom: 2.5rem;
+}
+
+/* =========================================================
+   CARTÕES DE SERVIÇO
+   ========================================================= */
+.cartoes {
+  display: grid;
+  /* cria colunas automáticas: cada uma com no mínimo 220px */
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  max-width: 900px;
+  margin: 0 auto;        /* centraliza na página */
+}
+
+.cartao {
+  background: var(--cor-fundo-alt);
+  color: var(--cor-texto);
+  border: 2px solid var(--cor-borda); /* borda discreta */
+  border-radius: 16px;
+  padding: 1rem 1rem 1.5rem; /* menos espaço em cima, para a imagem ficar mais perto da borda */
+  cursor: pointer;
+  font-family: inherit;  /* usa a mesma fonte do resto do site */
+  transition: transform 0.2s, border-color 0.2s;
+}
+
+.cartao:hover {
+  transform: scale(1.04); /* aumenta um pouquinho */
+}
+
+/* Imagem no topo de cada cartão de serviço */
+.cartao-imagem {
+  width: 100%;              /* ocupa toda a largura do cartão */
+  aspect-ratio: 1 / 1;      /* deixa a imagem quadrada (largura = altura) */
+  object-fit: cover;        /* preenche o quadrado sem esticar (corta as sobras) */
+  border-radius: 12px;      /* cantos arredondados */
+  margin-bottom: 1rem;      /* espaço entre a imagem e o título */
+  display: block;
+}
+
+/* O texto de detalhe começa ESCONDIDO... */
+.detalhe {
+  display: none;
+  margin-top: 1rem;
+  font-size: 0.95rem;
+}
+
+/* ...e aparece quando o cartão ganha a classe "aberto" (feito pelo script.js) */
+.cartao.aberto .detalhe {
+  display: block;
+}
+
+.cartao.aberto {
+  border-color: var(--cor-principal);
+}
+
+/* =========================================================
+   MOSTRUÁRIO
+   ========================================================= */
+.projeto {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.qrcode {
+  width: 200px;          /* deixa a imagem do QR code com 200px de largura */
+  background: white;     /* QR code precisa de fundo branco para ser lido */
+  padding: 1rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.projeto-info {
+  max-width: 350px;
+  text-align: left;
+}
+
+.projeto-info p {
+  margin: 0.5rem 0 1.5rem;
+}
+
+/* =========================================================
+   SOBRE MIM
+   ========================================================= */
+
+/* "#sobre" pega o elemento com id="sobre".
+   Diminui só o espaço de CIMA desta seção, para ela ficar mais perto do início */
+#sobre {
+  padding-top: 1.5rem;
+}
+.sobre {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Vale tanto para a foto de verdade quanto para o círculo provisório */
+.foto {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;          /* deixa redondo */
+  object-fit: cover;           /* a foto preenche o círculo sem ficar esticada */
+  border: 4px solid var(--cor-principal);
+}
+
+/* Círculo com a letra "L" enquanto não tem foto */
+.foto-provisoria {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--cor-fundo-alt);
+  color: var(--cor-principal);
+  font-family: "Fraunces", Georgia, serif;
+  font-size: 5rem;
+}
+
+.sobre-texto {
+  max-width: 450px;
+  text-align: left;
+}
+
+.sobre-texto p + p {           /* "p + p" = um parágrafo que vem logo depois de outro */
+  margin-top: 1rem;
+}
+
+/* =========================================================
+   COMO FUNCIONA (passos)
+   ========================================================= */
+.passos {
+  list-style: none;            /* tira os números automáticos da lista (usamos os nossos) */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 1.5rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.passo {
+  background: var(--cor-fundo-alt);
+  border: 2px solid var(--cor-borda);
+  border-radius: 16px;
+  padding: 2rem 1.2rem 1.5rem;
+}
+
+/* Bolinha verde-limão com o número do passo */
+.passo-numero {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: var(--cor-principal);
+  color: var(--cor-texto-botao);
+  font-weight: bold;
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+}
+
+.passo p {
+  margin-top: 0.5rem;
+  font-size: 0.95rem;
+  opacity: 0.85;
+}
+
+/* =========================================================
+   PREÇOS
+   ========================================================= */
+.preco-cartao {
+  max-width: 500px;
+  margin: 2rem auto 0;
+  padding: 2.5rem 2rem;
+  background: var(--cor-fundo);
+  border: 2px solid var(--cor-principal);
+  border-radius: 24px;
+}
+
+/* Etiqueta com o nome do pacote, em cima do preço */
+.preco-pacote {
+  display: inline-block;       /* a "caixinha" fica só do tamanho do texto */
+  border: 2px solid var(--cor-principal);
+  color: var(--cor-principal);
+  font-weight: bold;
+  text-transform: uppercase;   /* deixa o texto em LETRAS MAIÚSCULAS */
+  letter-spacing: 1px;         /* espaço extra entre as letras */
+  font-size: 0.85rem;
+  padding: 0.3rem 1rem;
+  border-radius: 50px;         /* formato de "pílula" */
+  margin-bottom: 1rem;
+}
+
+.preco {
+  font-family: "Fraunces", Georgia, serif;
+  font-size: 1.6rem;
+}
+
+.preco strong {
+  display: block;              /* coloca o valor numa linha só dele */
+  font-size: 3.5rem;
+  color: var(--cor-principal);
+}
+
+/* Lista com "✔" no lugar das bolinhas */
+.lista-check {
+  list-style: none;
+  text-align: left;
+  margin: 1.5rem 0;
+}
+
+.lista-check li {
+  padding: 0.7rem 0;
+  border-bottom: 1px solid var(--cor-borda);
+}
+
+.lista-check li::before {
+  content: "✔ ";               /* coloca o ✔ antes de cada item */
+  color: var(--cor-principal);
+  font-weight: bold;
+}
+
+/* Faixa verde-limão do lançamento, igual à do flyer */
+.faixa-lancamento {
+  background: var(--cor-principal);
+  color: var(--cor-texto-botao);
+  font-weight: bold;
+  padding: 0.8rem 1rem;
+  border-radius: 10px;
+  margin-bottom: 1.5rem;
+}
+
+/* =========================================================
+   PERGUNTAS FREQUENTES
+   ========================================================= */
+.perguntas {
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.perguntas details {
+  background: var(--cor-fundo);
+  border: 2px solid var(--cor-borda);
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  padding: 1rem 1.3rem;
+}
+
+/* "[open]" = quando a pergunta está aberta */
+.perguntas details[open] {
+  border-color: var(--cor-principal);
+}
+
+.perguntas summary {
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.perguntas details p {
+  margin-top: 0.8rem;
+  opacity: 0.85;
+}
+
+/* =========================================================
+   FORMULÁRIO DE ORÇAMENTO
+   ========================================================= */
+.formulario {
+  display: flex;
+  flex-direction: column;      /* um campo embaixo do outro */
+  gap: 0.5rem;
+  max-width: 500px;
+  margin: 0 auto;
+  text-align: left;
+
+  /* A "caixinha" em volta do formulário */
+  background: var(--cor-fundo-alt);          /* fundo azul um pouco mais claro */
+  border: 2px solid var(--cor-principal);    /* borda verde-limão, igual ao cartão de preço */
+  border-radius: 24px;                       /* cantos arredondados */
+  padding: 2rem;                             /* espaço entre a borda e o que tem dentro */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); /* sombra para a caixa "flutuar" */
+}
+
+/* Título dentro da caixinha */
+.formulario-titulo {
+  font-family: "Fraunces", Georgia, serif;
+  font-size: 1.4rem;
+  color: var(--cor-principal);
+  text-align: center;
+}
+
+.formulario label {
+  font-weight: bold;
+  margin-top: 0.8rem;
+}
+
+/* Vale para os 3 tipos de campo ao mesmo tempo */
+.formulario input,
+.formulario select,
+.formulario textarea {
+  font-family: inherit;
+  font-size: 1rem;
+  padding: 0.8rem 1rem;
+  border-radius: 10px;
+  border: 2px solid var(--cor-borda);
+  background: var(--cor-fundo);   /* campos mais escuros que a caixa, para se destacarem */
+  color: var(--cor-texto);
+}
+
+/* ":focus" = quando a pessoa clica no campo para escrever */
+.formulario input:focus,
+.formulario select:focus,
+.formulario textarea:focus {
+  outline: none;
+  border-color: var(--cor-principal);
+}
+
+.formulario .botao {
+  margin-top: 1.5rem;
+  width: 100%;                 /* botão ocupa a largura toda da caixa: fica bem visível */
+  font-size: 1.1rem;
+  padding: 1rem;
+}
+
+/* Textinho embaixo do botão */
+.formulario-aviso {
+  text-align: center;
+  font-size: 0.85rem;
+  opacity: 0.7;
+}
+
+/* =========================================================
+   ANIMAÇÃO AO ROLAR
+   As seções com a classe "revelar" começam invisíveis e um pouco para baixo.
+   Quando aparecem na tela, o script.js coloca a classe "visivel" e elas sobem suavemente.
+   ========================================================= */
+.revelar {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s, transform 0.8s;
+}
+
+.revelar.visivel {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =========================================================
+   RODAPÉ
+   ========================================================= */
+.rodape {
+  text-align: center;
+  padding: 2rem;
+  background: var(--cor-cabecalho);  /* fundo branco, igual ao cabeçalho */
+  color: var(--cor-texto-escuro);  /* letras escuras */
+}
+
+.redes {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 0.8rem;
+}
+
+.redes a {
+  color: var(--cor-texto-escuro);
+  font-weight: bold;
+}
+
+/* =========================================================
+   BOTÃO "VOLTAR AO INÍCIO" (↑)
+   ========================================================= */
+.botao-topo {
+  position: fixed;       /* fica parado na tela, mesmo rolando a página */
+  bottom: 25px;          /* distância do fundo da tela */
+  right: 25px;           /* distância da direita */
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;    /* 50% deixa o quadrado redondo */
+  background: var(--cor-principal);   /* verde-limão */
+  color: var(--cor-texto-botao);      /* seta escura */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-decoration: none;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+
+  /* Começa ESCONDIDO: transparente e um pouco mais para baixo */
+  opacity: 0;
+  transform: translateY(20px);
+  pointer-events: none;  /* enquanto está escondido, não dá para clicar nele */
+  transition: opacity 0.3s, transform 0.3s; /* aparece e some suavemente */
+}
+
+/* Quando o script.js coloca a classe "visivel", o botão aparece subindo */
+.botao-topo.visivel {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;  /* agora dá para clicar */
+}
+
+.botao-topo:hover {
+  transform: translateY(-3px); /* sobe um pouquinho ao passar o mouse */
+}
+
+/* =========================================================
+   CELULAR: regras que só valem em telas pequenas (até 600px)
+   ========================================================= */
+@media (max-width: 600px) {
+  .cabecalho {
+    padding: 0.8rem 1.2rem;
+    justify-content: flex-end; /* no celular, o ☰ fica na direita */
+  }
+
+  /* No celular o botão ☰ aparece */
+  .botao-menu {
+    display: block;
+  }
+
+  /* O menu vira uma lista "pendurada" embaixo do cabeçalho, e começa escondido */
+  .menu {
+    display: none;
+    position: absolute;  /* sai do lugar normal e se posiciona em relação ao cabeçalho */
+    top: 100%;           /* logo abaixo do cabeçalho */
+    left: 0;
+    right: 0;            /* left 0 + right 0 = ocupa a largura toda */
+    flex-direction: column; /* links um embaixo do outro */
+    gap: 0;
+    background: var(--cor-cabecalho); /* o menu aberto também fica branco */
+  }
+
+  /* Quando o script.js coloca a classe "aberto", o menu aparece */
+  .menu.aberto {
+    display: flex;
+  }
+
+  .menu a {
+    padding: 1rem 1.2rem;  /* área grande, fácil de tocar com o dedo */
+    border-top: 1px solid rgba(0, 0, 0, 0.1); /* linha escura bem fraquinha separando os links */
+  }
+
+  /* Textos e espaços menores para caber bem na tela */
+  .inicio {
+    min-height: 60vh;
+    padding: 1.5rem;
+  }
+
+  .inicio h1 {
+    font-size: 2rem;
+  }
+
+  .secao {
+    padding: 3.5rem 1.2rem;
+  }
+
+  .secao h2 {
+    font-size: 1.8rem;
+  }
+
+  .projeto-info,
+  .sobre-texto {
+    text-align: center;
+  }
+
+  .preco strong {
+    font-size: 2.8rem;
+  }
+
+  /* Caixinha do orçamento com menos espaço interno no celular */
+  .formulario {
+    padding: 1.5rem 1.2rem;
+  }
+
+  /* Botão "voltar ao início" um pouco menor e mais no cantinho */
+  .botao-topo {
+    width: 45px;
+    height: 45px;
+    bottom: 18px;
+    right: 18px;
+  }
+}
