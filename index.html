@@ -34,6 +34,13 @@
 
   <!-- ===== CABEÇALHO: topo da página com o menu ===== -->
   <header class="cabecalho">
+    <!-- Marca (ícone "L" + nome): só aparece no CELULAR, para o cabeçalho não ficar vazio.
+         Clicar nela leva de volta ao início -->
+    <a href="#inicio" class="marca-celular">
+      <img src="favicon.svg" alt="" class="marca-icone">
+      <span>Ludnice</span>
+    </a>
+
     <!-- Botão "hambúrguer" (☰): só aparece no celular e abre/fecha o menu.
          "aria-label" descreve o botão para quem usa leitor de tela -->
     <button id="botao-menu" class="botao-menu" aria-label="Abrir menu">☰</button>
@@ -159,6 +166,13 @@
 
       <a href="#orcamento" class="botao botao-principal">Quero aproveitar</a>
     </div>
+
+    <!-- SERVIÇO EXTRA: caixinha menor, embaixo do cartão de preço -->
+    <div class="extra-cartao">
+      <p class="extra-etiqueta">➕ Serviço extra</p>
+      <h3>Site + Perfil no Google</h3>
+      <p>Crio o seu site e configuro o seu perfil no Google, para o seu negócio aparecer nas pesquisas e no Google Maps, com endereço, horário, fotos e contacto.</p>
+    </div>
   </section>
 
   <!-- ===== MOSTRUÁRIO: exemplo de trabalho com QR code ===== -->
@@ -230,6 +244,7 @@
         <option>Site institucional</option>
         <option>Landing page</option>
         <option>Manutenção de site</option>
+        <option>Site + Perfil no Google</option>
         <option>Ainda não sei</option>
       </select>
 

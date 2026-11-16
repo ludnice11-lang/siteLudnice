@@ -87,6 +87,23 @@ h1, h2, h3 {
   text-decoration: underline; /* sublinha o link */
 }
 
+/* Marca (ícone + nome): no computador fica escondida */
+.marca-celular {
+  display: none;
+  align-items: center;     /* alinha o ícone e o nome pelo meio */
+  gap: 0.5rem;             /* espaço entre o ícone e o nome */
+  color: var(--cor-texto-escuro);
+  font-family: "Fraunces", Georgia, serif;
+  font-size: 1.3rem;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.marca-icone {
+  width: 34px;
+  height: 34px;
+}
+
 /* Botão ☰ do menu: no computador ele fica escondido */
 .botao-menu {
   display: none;
@@ -439,6 +456,33 @@ h1, h2, h3 {
   margin-bottom: 1.5rem;
 }
 
+/* Caixinha do serviço extra (Perfil no Google) */
+.extra-cartao {
+  max-width: 500px;
+  margin: 1.5rem auto 0;       /* espaço em cima, separando do cartão de preço */
+  padding: 1.5rem 2rem;
+  background: var(--cor-fundo);
+  border: 2px dashed var(--cor-principal); /* "dashed" = borda tracejada, para parecer um "adicional" */
+  border-radius: 24px;
+}
+
+.extra-etiqueta {
+  color: var(--cor-principal);
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.85rem;
+}
+
+.extra-cartao h3 {
+  font-size: 1.4rem;
+  margin: 0.4rem 0 0.6rem;
+}
+
+.extra-cartao p:last-child {   /* o último parágrafo: o texto de explicação */
+  opacity: 0.85;
+}
+
 /* =========================================================
    PERGUNTAS FREQUENTES
    ========================================================= */
@@ -620,7 +664,12 @@ h1, h2, h3 {
 @media (max-width: 600px) {
   .cabecalho {
     padding: 0.8rem 1.2rem;
-    justify-content: flex-end; /* no celular, o ☰ fica na direita */
+    justify-content: space-between; /* no celular: marca na esquerda, ☰ na direita */
+  }
+
+  /* No celular a marca aparece */
+  .marca-celular {
+    display: flex;
   }
 
   /* No celular o botão ☰ aparece */
@@ -675,6 +724,12 @@ h1, h2, h3 {
 
   .preco strong {
     font-size: 2.8rem;
+  }
+
+  /* Imagens dos serviços em formato retangular (mais baixinhas) no celular.
+     16 / 9 = o mesmo formato de uma tela de TV */
+  .cartao-imagem {
+    aspect-ratio: 16 / 9;
   }
 
   /* Caixinha do orçamento com menos espaço interno no celular */
