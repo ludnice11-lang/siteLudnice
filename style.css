@@ -806,11 +806,57 @@ h1, h2, h3 {
     padding: 1.5rem 1.2rem;
   }
 
-  /* Botão "voltar ao início" um pouco menor e mais no cantinho */
+  /* ---------- AJUSTE 1: botões do início com a mesma largura ---------- */
+  .botoes {
+    flex-direction: column;  /* um botão embaixo do outro */
+    width: 100%;
+    max-width: 300px;        /* não ficam largos demais */
+  }
+
+  .botoes .botao {
+    text-align: center;      /* texto centralizado dentro do botão */
+  }
+
+  /* ---------- AJUSTE 2: "Como funciona" mais compacto ----------
+     Cada passo vira uma pequena "grade" de 2 colunas:
+     número na esquerda | título e texto na direita */
+  .passos {
+    gap: 1rem;
+  }
+
+  .passo {
+    display: grid;
+    grid-template-columns: auto 1fr; /* 1ª coluna: tamanho do número | 2ª: o resto do espaço */
+    column-gap: 1rem;                /* espaço entre o número e o texto */
+    text-align: left;
+    padding: 1.2rem;
+  }
+
+  .passo-numero {
+    grid-row: span 2;        /* o número ocupa 2 linhas: a do título e a do texto */
+    margin-bottom: 0;
+    align-self: start;       /* fica no topo, alinhado com o título */
+  }
+
+  .passo p {
+    margin-top: 0.3rem;
+  }
+
+  /* ---------- AJUSTE 3: botão ↑ menor e meio transparente ---------- */
   .botao-topo {
-    width: 45px;
-    height: 45px;
-    bottom: 18px;
-    right: 18px;
+    width: 40px;
+    height: 40px;
+    bottom: 16px;
+    right: 16px;
+    font-size: 1.2rem;
+  }
+
+  .botao-topo.visivel {
+    opacity: 0.6;            /* meio transparente: dá para ver o texto por trás */
+  }
+
+  /* ":active" = enquanto o dedo está a tocar no botão */
+  .botao-topo.visivel:active {
+    opacity: 1;
   }
 }
