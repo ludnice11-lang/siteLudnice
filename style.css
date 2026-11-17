@@ -1,4 +1,23 @@
 /* =========================================================
+   FONTES (guardadas na pasta "fontes" do próprio site)
+   "@font-face" ensina ao navegador uma fonte nova: o nome dela e onde está o arquivo.
+   Como os arquivos estão no nosso site, nada é enviado para o Google (bom para o RGPD).
+   ========================================================= */
+@font-face {
+  font-family: "DM Sans";                   /* nome que usamos no resto do CSS */
+  src: url("fontes/dm-sans.woff2") format("woff2");
+  font-weight: 400 700;                     /* um arquivo só serve do normal (400) ao negrito (700) */
+  font-display: swap;                       /* mostra o texto logo, mesmo antes da fonte carregar */
+}
+
+@font-face {
+  font-family: "Fraunces";
+  src: url("fontes/fraunces-bold.woff2") format("woff2");
+  font-weight: 700;                         /* só a versão em negrito, usada nos títulos */
+  font-display: swap;
+}
+
+/* =========================================================
    CORES DO SITE
    Aqui criamos "variáveis": nomes que guardam uma cor.
    Se quiser mudar a cor do site todo, é só mudar aqui!
@@ -618,6 +637,56 @@ h1, h2, h3 {
 .redes a {
   color: var(--cor-texto-escuro);
   font-weight: bold;
+}
+
+/* =========================================================
+   PÁGINA DE TEXTO (Política de Privacidade)
+   ========================================================= */
+
+/* Link "← Voltar ao site" no cabeçalho */
+.voltar {
+  color: var(--cor-texto-escuro);
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.voltar:hover {
+  text-decoration: underline;
+}
+
+/* Texto mais estreito e alinhado à esquerda: fica mais fácil de ler */
+.pagina-texto {
+  max-width: 750px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.pagina-texto h2::before {
+  margin-left: 0;            /* o tracinho verde fica à esquerda, junto com o texto */
+}
+
+.pagina-texto h3 {
+  color: var(--cor-principal);
+  margin: 2rem 0 0.5rem;
+}
+
+.pagina-texto ul {
+  margin: 0.5rem 0 0 1.5rem; /* recuo para as bolinhas da lista */
+}
+
+.pagina-texto a {
+  color: var(--cor-principal);
+}
+
+/* Linhas legais do rodapé (privacidade, NIF...): letra menor */
+.rodape-legal {
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+}
+
+/* Todos os links do rodapé ficam escuros, para ler bem no fundo branco */
+.rodape a {
+  color: var(--cor-texto-escuro);
 }
 
 /* =========================================================
