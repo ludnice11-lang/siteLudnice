@@ -521,6 +521,49 @@ h1, h2, h3 {
 }
 
 /* =========================================================
+   AVISO DE PRAZOS
+   ========================================================= */
+.aviso-prazos {
+  max-width: 500px;
+  margin: 1.5rem auto 0;
+  padding: 1.5rem;
+  text-align: left;
+  background: var(--cor-fundo);
+  border: 1px solid var(--cor-borda);
+  border-left: 5px solid var(--cor-principal); /* faixa grossa à esquerda: visual de "aviso" */
+  border-radius: 12px;
+  font-size: 0.95rem;
+}
+
+.aviso-titulo {
+  font-weight: bold;
+  font-size: 1.05rem;
+  color: var(--cor-principal);
+  margin-bottom: 0.5rem;
+}
+
+.prazos {
+  margin: 1rem 0;
+}
+
+/* "dt" = nome da etapa (Domínio, Alojamento...) */
+.prazos dt {
+  font-weight: bold;
+  margin-top: 0.9rem;
+}
+
+/* "dd" = explicação da etapa */
+.prazos dd {
+  margin: 0.2rem 0 0 1.6rem;   /* recuo para alinhar com o texto depois do emoji */
+  opacity: 0.85;
+}
+
+.aviso-final {
+  font-style: italic;          /* letra inclinada */
+  opacity: 0.85;
+}
+
+/* =========================================================
    BOTÕES DE PAÍS (Portugal / Brasil)
    ========================================================= */
 .escolha-pais {
