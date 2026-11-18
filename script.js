@@ -139,7 +139,46 @@ document.querySelectorAll(".revelar").forEach(function (secao) {
 
 
 // =========================================================
-// 7) ANO AUTOMÁTICO NO RODAPÉ
+// 7) PREÇOS POR PAÍS (Portugal / Brasil)
+// =========================================================
+
+const botoesPais = document.querySelectorAll(".botao-pais");
+
+// Função = um "bloco de instruções" com nome, que podemos usar várias vezes.
+// "pais" recebe "pt" ou "br".
+function mostrarPrecos(pais) {
+  // 1. Troca os textos: cada elemento com "data-pt" também tem "data-br".
+  //    "elemento.dataset.pt" lê o data-pt; "elemento.dataset.br" lê o data-br.
+  document.querySelectorAll("[data-pt]").forEach(function (elemento) {
+    elemento.textContent = elemento.dataset[pais];
+  });
+
+  // 2. Pinta de verde só o botão do país escolhido
+  botoesPais.forEach(function (botao) {
+    if (botao.dataset.pais === pais) {
+      botao.classList.add("ativo");
+    } else {
+      botao.classList.remove("ativo");
+    }
+  });
+}
+
+// Quando clicam num botão de país, mostra os preços daquele país
+botoesPais.forEach(function (botao) {
+  botao.addEventListener("click", function () {
+    mostrarPrecos(botao.dataset.pais);
+  });
+});
+
+// Ao abrir o site: se o navegador da pessoa está em português do Brasil ("pt-BR"),
+// já mostra os preços em reais. Senão, fica Portugal (o padrão).
+if (navigator.language === "pt-BR") {
+  mostrarPrecos("br");
+}
+
+
+// =========================================================
+// 8) ANO AUTOMÁTICO NO RODAPÉ
 // =========================================================
 
 // "new Date().getFullYear()" pega o ano atual (ex.: 2026)

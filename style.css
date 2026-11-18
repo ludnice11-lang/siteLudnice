@@ -498,8 +498,57 @@ h1, h2, h3 {
   margin: 0.4rem 0 0.6rem;
 }
 
-.extra-cartao p:last-child {   /* o último parágrafo: o texto de explicação */
+.extra-cartao h3 + p {         /* "h3 + p" = o parágrafo logo depois do título: o texto de explicação */
   opacity: 0.85;
+}
+
+/* Parte de baixo da caixinha: preço só do Perfil no Google */
+.extra-avulso {
+  margin-top: 1.2rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid var(--cor-borda); /* linha separando do brinde */
+}
+
+.extra-preco {
+  font-family: "Fraunces", Georgia, serif;
+  font-size: 1.2rem;
+  margin-top: 0.3rem;
+}
+
+.extra-preco strong {
+  color: var(--cor-principal);
+  font-size: 1.6rem;
+}
+
+/* =========================================================
+   BOTÕES DE PAÍS (Portugal / Brasil)
+   ========================================================= */
+.escolha-pais {
+  display: inline-flex;          /* os dois botões lado a lado, juntinhos */
+  background: var(--cor-fundo);
+  border: 2px solid var(--cor-borda);
+  border-radius: 50px;
+  padding: 4px;                  /* espacinho entre a borda e os botões */
+  gap: 4px;
+}
+
+.botao-pais {
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 0.6rem 1.3rem;
+  border: none;
+  border-radius: 50px;
+  background: transparent;       /* sem fundo quando NÃO está escolhido */
+  color: var(--cor-texto);
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+/* O botão do país escolhido fica verde-limão (a classe "ativo" é colocada pelo script.js) */
+.botao-pais.ativo {
+  background: var(--cor-principal);
+  color: var(--cor-texto-botao);
 }
 
 /* =========================================================

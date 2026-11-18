@@ -144,17 +144,29 @@
   <!-- ===== PREÇOS ===== -->
   <section id="precos" class="secao secao-alternada revelar">
     <h2>Preços</h2>
+    <p class="subtitulo">Escolha onde você está:</p>
 
+    <!-- BOTÕES DE PAÍS: o script.js troca os preços quando um deles é clicado.
+         "data-pais" guarda qual país cada botão representa -->
+    <div class="escolha-pais">
+      <button class="botao-pais ativo" data-pais="pt">🇵🇹 Portugal</button>
+      <button class="botao-pais" data-pais="br">🇧🇷 Brasil</button>
+    </div>
+
+    <!-- COMO FUNCIONA A TROCA:
+         Todo elemento com "data-pt" e "data-br" guarda as DUAS versões do texto.
+         O script.js mostra a versão do país escolhido. Para mudar um preço, mude os dois valores aqui. -->
     <div class="preco-cartao">
       <!-- Nome do pacote: diz o que está incluído nesse preço -->
       <p class="preco-pacote">One Page / Landing Page</p>
-      <p class="preco">Sites a partir de <strong>75 €</strong></p>
+      <p class="preco">Sites a partir de <strong data-pt="75 €" data-br="R$ 350">75 €</strong></p>
 
-      <!-- "ul" = lista com marcadores (sem números) -->
+      <!-- "ul" = lista com marcadores (sem números). O que está incluído no preço -->
       <ul class="lista-check">
-        <li>Design bonito e moderno</li>
-        <li>Funciona no telemóvel e no computador</li>
-        <li>Botão direto para o seu WhatsApp e redes sociais</li>
+        <li>1 página</li>
+        <li data-pt="Até 2 rondas de alterações" data-br="Até 2 rodadas de alterações">Até 2 rondas de alterações</li>
+        <li>Botão de WhatsApp e redes sociais</li>
+        <li>Ligar o domínio</li>
       </ul>
 
       <p class="faixa-lancamento">🎉 Lançamento: desconto para os primeiros clientes!</p>
@@ -162,11 +174,17 @@
       <a href="#orcamento" class="botao botao-principal">Quero aproveitar</a>
     </div>
 
-    <!-- SERVIÇO EXTRA: caixinha menor, embaixo do cartão de preço -->
+    <!-- PERFIL NO GOOGLE: brinde para quem faz o site + preço para quem quer só a configuração -->
     <div class="extra-cartao">
-      <p class="extra-etiqueta">➕ Serviço extra</p>
-      <h3>Site + Perfil no Google</h3>
-      <p>Crio o seu site e configuro o seu perfil no Google, para o seu negócio aparecer nas pesquisas e no Google Maps, com endereço, horário, fotos e contacto.</p>
+      <p class="extra-etiqueta">🎁 Brinde</p>
+      <h3>Perfil no Google grátis</h3>
+      <p>Fazendo o seu site comigo, configuro o seu perfil no Google <strong>sem custo</strong>, para o seu negócio aparecer nas pesquisas e no Google Maps, com endereço, horário, fotos e contacto.</p>
+
+      <!-- Linha separando o brinde do serviço avulso -->
+      <div class="extra-avulso">
+        <p>Quer <strong>só</strong> a configuração do Perfil no Google?</p>
+        <p class="extra-preco">A partir de <strong data-pt="25 €" data-br="R$ 150">25 €</strong></p>
+      </div>
     </div>
   </section>
 
@@ -239,7 +257,7 @@
         <option>Site institucional</option>
         <option>Landing page</option>
         <option>Manutenção de site</option>
-        <option>Site + Perfil no Google</option>
+        <option>Só a configuração do Perfil no Google</option>
         <option>Ainda não sei</option>
       </select>
 
