@@ -4,7 +4,8 @@
 
 // Seu número de WhatsApp: código do país + DDD + número, só números, sem espaços.
 // Exemplo Brasil: 5511999998888 | Exemplo Portugal: 351912345678
-const numeroWhatsapp = "5500000000000";
+// 351 = código de Portugal. Com ele, o link funciona para quem está em qualquer país.
+const numeroWhatsapp = "351912232530";
 
 // Endereço do site do mostruário (o mesmo do QR code). Usado no botão "Abrir o site".
 const siteDoProjeto = "https://ludnice11-lang.github.io/site-bebe-livre/";
@@ -41,7 +42,7 @@ formulario.addEventListener("submit", function (evento) {
   const link = "https://wa.me/" + numeroWhatsapp + "?text=" + encodeURIComponent(mensagem);
 
   // Abre o WhatsApp numa nova aba, com a mensagem pronta
-  window.open(link, "_blank");
+  window.open(link, "_blank", "noopener"); // "noopener": a aba nova não consegue mexer no nosso site
 });
 
 
