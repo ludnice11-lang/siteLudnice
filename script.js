@@ -154,7 +154,13 @@ function mostrarPrecos(pais) {
     elemento.textContent = elemento.dataset[pais];
   });
 
-  // 2. Pinta de verde só o botão do país escolhido
+  // 2. O que tem a classe "so-portugal" (o selo de lançamento) só aparece em Portugal.
+  //    "hidden = true" esconde; "hidden = false" mostra.
+  document.querySelectorAll(".so-portugal").forEach(function (elemento) {
+    elemento.hidden = (pais !== "pt"); // "!==" = "é diferente de"
+  });
+
+  // 3. Pinta de verde só o botão do país escolhido
   botoesPais.forEach(function (botao) {
     if (botao.dataset.pais === pais) {
       botao.classList.add("ativo");

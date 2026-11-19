@@ -465,6 +465,49 @@ h1, h2, h3 {
   font-weight: bold;
 }
 
+/* Selo "Preço de lançamento" logo abaixo do valor */
+.selo-lancamento {
+  display: inline-flex;        /* deixa a bolinha e o texto lado a lado */
+  align-items: center;         /* alinha os dois pelo meio, na vertical */
+  gap: 0.5rem;                 /* espaço entre a bolinha e o texto */
+  margin-top: 0.5rem;
+  padding: 0.35rem 0.9rem;
+  border: 1px solid var(--cor-principal);
+  border-radius: 999px;        /* número grande = cantos totalmente redondos (formato de pílula) */
+  color: var(--cor-principal);
+  font-size: 0.9rem;
+  font-weight: bold;
+  text-transform: uppercase;   /* escreve tudo em MAIÚSCULAS */
+  letter-spacing: 0.05em;      /* afasta um pouquinho as letras */
+}
+
+/* A "luzinha": uma bolinha criada pelo CSS antes do texto */
+.selo-lancamento::before {
+  content: "";                 /* vazio: é só uma forma, sem texto */
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;          /* 50% = círculo */
+  background: var(--cor-principal);
+  animation: piscar 1.2s ease-in-out infinite; /* usa a animação "piscar", para sempre */
+}
+
+/* @keyframes = os "quadros" da animação: começa acesa, apaga no meio, acende de novo */
+@keyframes piscar {
+  0%, 100% { opacity: 1;   box-shadow: 0 0 8px var(--cor-principal); } /* acesa, com brilho */
+  50%      { opacity: 0.2; box-shadow: none; }                         /* quase apagada */
+}
+
+/* Respeita quem configurou o aparelho para "reduzir movimento" (acessibilidade): a luz fica parada */
+@media (prefers-reduced-motion: reduce) {
+  .selo-lancamento::before { animation: none; }
+}
+
+/* "hidden" é o atributo que o script.js usa para esconder o selo no Brasil.
+   Esta regra garante que nenhum "display" acima o faça aparecer. */
+.so-portugal[hidden] {
+  display: none;
+}
+
 /* Faixa verde-limão do lançamento, igual à do flyer */
 .faixa-lancamento {
   background: var(--cor-principal);
