@@ -29,12 +29,12 @@ formulario.addEventListener("submit", function (evento) {
   const ideia = document.getElementById("campo-ideia").value;
 
   // Monta a mensagem juntando os textos. "\n" = pular linha
-  let mensagem = "Olá, Ludnice! Meu nome é " + nome + ".\n";
+  let mensagem = "Olá, Ludnice! O meu nome é " + nome + ".\n";
   mensagem = mensagem + "Gostaria de um orçamento para: " + tipo + ".";
 
   // Só acrescenta a ideia se a pessoa escreveu alguma coisa
   if (ideia !== "") {
-    mensagem = mensagem + "\n\nMinha ideia: " + ideia;
+    mensagem = mensagem + "\n\nA minha ideia: " + ideia;
   }
 
   // Monta o link do WhatsApp. "encodeURIComponent" transforma espaços, acentos
