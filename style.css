@@ -244,11 +244,19 @@ h1, h2, h3 {
    ========================================================= */
 .cartoes {
   display: grid;
-  /* cria colunas automáticas: cada uma com no mínimo 220px */
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  /* No computador: 4 colunas do mesmo tamanho ("1fr" = uma parte igual do espaço) */
+  grid-template-columns: repeat(4, 1fr);
   gap: 1.5rem;
-  max-width: 900px;
+  max-width: 1000px;     /* largura suficiente para 4 cartões lado a lado no computador */
   margin: 0 auto;        /* centraliza na página */
+}
+
+/* Em ecrãs médios (tablet, até 900px de largura): 2 colunas, ou seja, 2 cartões em cima e 2 embaixo.
+   Assim nenhum cartão fica sozinho numa linha */
+@media (max-width: 900px) {
+  .cartoes {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 .cartao {
@@ -274,6 +282,22 @@ h1, h2, h3 {
   border-radius: 12px;      /* cantos arredondados */
   margin-bottom: 1rem;      /* espaço entre a imagem e o título */
   display: block;
+}
+
+/* Cartão SEM foto: um quadrado colorido com um emoji grande no meio.
+   Ele usa também a classe "cartao-imagem", então herda o tamanho e os cantos arredondados */
+.cartao-icone {
+  display: flex;               /* "flex" ajuda a centralizar o que está dentro */
+  align-items: center;         /* centraliza o emoji na vertical */
+  justify-content: center;     /* centraliza o emoji na horizontal */
+  font-size: 5rem;             /* emoji bem grande */
+  /* Fundo azul que imita as outras imagens:
+     "radial-gradient" = degradê em CÍRCULO, que começa no centro e vai para as bordas.
+     Centro azul-claro brilhante -> azul médio -> azul-marinho bem escuro nos cantos */
+  background: radial-gradient(circle at center, #3b7bff 0%, #1a3fa8 40%, #0a1638 100%);
+  /* Brilho azul à volta do emoji, como a luz das outras imagens.
+     Os números são: deslocamento para o lado, para baixo, tamanho do brilho, cor */
+  text-shadow: 0 0 25px #5aa0ff;
 }
 
 /* O texto de detalhe começa ESCONDIDO... */
@@ -922,6 +946,16 @@ h1, h2, h3 {
      16 / 9 = o mesmo formato de uma tela de TV */
   .cartao-imagem {
     aspect-ratio: 16 / 9;
+  }
+
+  /* No telemóvel: 1 cartão por linha, ocupando a largura toda */
+  .cartoes {
+    grid-template-columns: 1fr;
+  }
+
+  /* O quadrado do emoji fica mais baixinho no telemóvel, então o emoji também diminui */
+  .cartao-icone {
+    font-size: 3.5rem;
   }
 
   /* Caixinha do orçamento com menos espaço interno no celular */

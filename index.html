@@ -106,6 +106,17 @@
         <p class="detalhe">Uma página só, feita para o cliente agir: falar consigo no WhatsApp ou comprar.</p>
       </button>
 
+      <!-- NOVO SERVIÇO: site tipo app (PWA = "Progressive Web App").
+           Ainda não há foto para este cartão, por isso usamos um quadrado com um emoji.
+           Quando tiver uma imagem (ex.: "imagens/servico-app.jpg"), troque a <div> abaixo por:
+           <img src="imagens/servico-app.jpg" alt="Telemóvel com um app aberto" class="cartao-imagem"> -->
+      <button class="cartao">
+        <div class="cartao-imagem cartao-icone" aria-hidden="true">📱</div>
+        <h3>Site tipo app</h3>
+        <p class="detalhe">Um site que o cliente instala no telemóvel como uma app: ganha um ícone no ecrã inicial, abre em ecrã inteiro e funciona mesmo com a internet fraca. Sem precisar de lojas de apps.</p>
+      </button>
+
+      <!-- Manutenção fica sempre em ÚLTIMO lugar -->
       <button class="cartao">
         <img src="imagens/servico-manutencao.jpg" alt="Ferramentas e engrenagem" class="cartao-imagem">
         <h3>Manutenção</h3>
@@ -269,6 +280,12 @@
         <p>Sim. Todos os sites são feitos para funcionar bem no telemóvel, no tablet e no computador.</p>
       </details>
 
+      <!-- Pergunta nova: explica o serviço "Site tipo app" -->
+      <details>
+        <summary>O que é um site tipo app?</summary>
+        <p>É um site que se pode instalar no telemóvel, como se fosse uma app (o nome técnico é PWA). Fica com um ícone no ecrã inicial, abre sem a barra do navegador e carrega mais depressa. Não precisa de estar na Play Store nem na App Store.</p>
+      </details>
+
       <details>
         <summary>Posso pedir mudanças depois?</summary>
         <p>Pode. Durante a criação fazemos os ajustes juntos, e depois também ofereço o serviço de manutenção.</p>
@@ -295,6 +312,7 @@
       <select id="campo-tipo">
         <option>Site institucional</option>
         <option>Landing page</option>
+        <option>Site tipo app (PWA)</option> <!-- nova opção para o serviço de site tipo app -->
         <option>Manutenção de site</option>
         <option>Só a configuração do Perfil no Google</option>
         <option>Ainda não sei</option>
